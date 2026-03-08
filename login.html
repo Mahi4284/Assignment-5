@@ -5,54 +5,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GitHub Issues Tracker</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 
 
 <body class="bg-base-200 min-h-screen flex items-center justify-center">
 
-    <div class="card w-full max-w-sm bg-base-100 shadow-xl">
-        <div class="card-body items-center text-center">
-            <!-- Logo / Title -->
-            <div class="mb-6">
-                <h1 class="text-4xl font-bold text-primary">Phi Lab</h1>
-                <p class="text-lg text-base-content/70 mt-1">Issues Tracker</p>
+    <div class="card w-full max-w-sm bg-base-100 shadow-2xl">
+        <div class="card-body items-center">
+            <img src="assets/github-logo.png">
+            <div class="mb-2 ">
+                <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
+                <p class="text-sm text-center text-base-content/70 mt-1">Sign in to manage your issues</p>
             </div>
 
-            <!-- Form -->
             <form id="loginForm" class="w-full">
                 <div class="form-control mb-4">
                     <label class="label">
-                        <span class="label-text">Username</span>
+                        <span class="font-bold text-gray-700 mb-2">Username</span>
                     </label>
-                    <input type="text" id="username" placeholder="admin" class="input input-bordered w-full" required />
+                    <input type="text" id="username" placeholder="Enter Username" class="input input-bordered w-full"
+                        required />
                 </div>
 
-                <div class="form-control mb-6">
+                <div class="form-control mb-4">
                     <label class="label">
-                        <span class="label-text">Password</span>
+                        <span class="font-bold text-gray-700 mb-2">Password</span>
                     </label>
-                    <input type="password" id="password" placeholder="admin123" class="input input-bordered w-full"
-                        required />
+                    <input type="password" id="password" placeholder="Enter Password"
+                        class="input input-bordered w-full" required />
                 </div>
 
                 <button type="submit" class="btn btn-primary w-full">Sign In</button>
             </form>
 
-            <!-- Demo credentials -->
-            <div class="mt-6 text-sm text-base-content/60">
-                Demo credentials: <br>
-                <strong>username:</strong> admin <br>
-                <strong>password:</strong> admin123
+            <div class="mt-3 text-center text-sm text-base-content/60">
+                <h1 class="font-bold text-gray-900">Or</h1>
+                <p class="text-xs mb-4 text-gray-600">Demo Credentials:</p>
+                <div class="text-gray-950">
+                    <h2><span class="font-bold">Username:</span> admin</h2>
+                    <h2><span class="font-bold">Password:</span> admin123</h2>
+                </div>
             </div>
 
-            <!-- Error message -->
-            <p id="errorMsg" class="text-error mt-4 hidden">Invalid credentials</p>
+            <!-- Error -->
+            <p id="errorMsg" class="text-error mt-4 hidden">Invalid Credentials</p>
         </div>
     </div>
 

@@ -1,0 +1,7 @@
+.issue-card.open {
+    border-top: 4px solid #22c55e;
+}
+
+.issue-card.closed {
+    border-top: 4px solid #a855f7;
+}
