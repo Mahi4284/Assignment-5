@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Issues Tracker</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body class="bg-base-200 min-h-screen">
+
+    <!-- Navbar -->
+    <div class="navbar bg-base-100 shadow rounded-sm justify-between w-11/12 m-auto flex-col sm:flex-row">
+        <div class="flex">
+            <img class="w-10 ml-3" src="assets/github-logo.png" alt="">
+            <a class="btn btn-ghost text-xl font-bold">GitHub Issues Tracker</a>
+        </div>
+
+        <div>
+            <div class="form-control">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="searchInput" type="text" placeholder="Search issues..."
+                    class="input input-bordered w-24 md:w-auto" />
+                <button class="btn btn-primary mt-4 sm:mt-0">+ New Issue</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <div class="tabs tabs-boxed mb-6 gap-3 bg-base-100 shadow rounded-sm">
+            <button class="tab tab-active text-black" data-tab="all">All</button>
+            <button class="tab text-black" data-tab="open">Open</button>
+            <button class="tab text-black" data-tab="closed">Closed</button>
+        </div>
+
+
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
+            <div class="text-lg font-semibold flex w-full justify-between" id="stats">
+                <div class="flex items-center gap-2">
+                    <div class="bg-orange-600/15 rounded-full p-2">
+                        <img src="assets/Aperture.png" alt="">
+                    </div>
+                    <div>
+                        <span id="issueCount">0</span> Issues
+                        <p class="text-sm text-gray-400">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div class="flex gap-1 bg-base-100 rounded-sm shadow items-center px-6">
+                    <img class="h-5" src="assets/Open-Status.png" alt="">
+                    <p class="text-sm mr-4">Open</p>
+                    <img class="h-5" src="assets/Closed- Status .png" alt="">
+                    <p class="text-sm">Close</p>
+                </div>
+            </div>
+        </div>
+        <!-- Loading Spinner -->
+        <div id="loading" class="flex justify-center py-12 hidden">
+            <span class="loading loading-spinner loading-lg"></span>
+        </div>
+
+        <!-- Issues Grid -->
+        <div id="issuesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        </div>
+    </main>
+
+
+    <!-- Modal -->
+    <dialog id="issueModal" class="modal">
+        <div class="modal-box w-11/12 max-w-3xl">
+            <h3 class="font-bold text-2xl mb-6" id="modalTitle"></h3>
+            <div class="py-4">
+                <div class="flex gap-7 mb-4">
+                    <p>
+                        <span id="modalStatus" class="px-3 py-1 rounded-md text-white font-semibold"></span>
+                    </p>
+                    <p class="font-bold"><strong class="hidden">Author:</strong> <span id="modalAuthor"></span></p>
+                    <p class="font-bold">|</p>
+                    <p><strong class="hidden">Created:</strong> <span id="modalCreated"></span></p>
+                </div>
+                <p class="mb-4"><strong>Labels >></strong> <span class="text-green-800 font-semibold"
+                        id="modalLabels"></span></p>
+                <p><strong>Description:</strong> <span id="modalDesc"></span></p>
+                <p class="mt-5"><strong>Priority:</strong> <span class="bg-green-600 px-3 py-1 rounded-md text-white"
+                        id="modalPriority"></span></p>
+
+            </div>
+            <div class="modal-action">
+                <button class="btn btn-primary" onclick="document.getElementById('issueModal').close()">Close</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

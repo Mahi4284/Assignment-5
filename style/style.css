@@ -5,3 +5,19 @@
 .issue-card.closed {
     border-top: 4px solid #a855f7;
 }
+
+.tab-active{
+    background-color: #4A00FF;
+    color: white;
+    border-radius: 5px;
+}
+
+
+#modalStatus{
+    background-color: rgba(0, 128, 0, 0.795);
+    padding-inline: 10px;
+    padding-block: 5px;
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+}
