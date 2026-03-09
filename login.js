@@ -6,7 +6,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     const errorMsg = document.getElementById('errorMsg');
 
     if (username === 'admin' && password === 'admin123') {
-        // localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('isLoggedIn', 'true');
         window.location.href = 'index.html';
     } else {
         errorMsg.classList.remove('hidden');
